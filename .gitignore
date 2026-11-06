@@ -1,0 +1,19 @@
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+
+# Secrets and private keys
+*.pem
+*.key
+*.pub
+
+# Terraform variables
+*.tfvars
+*.tfvars.json
+
+# Terraform lock file - KEEP this file
+# .terraform.lock.hcl should be committed
