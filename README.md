@@ -1,87 +1,72 @@
-🚀 Terraform AWS EC2 Nginx Deployment
 
-📌 Project Overview
+# Terraform AWS EC2 Nginx Deployment
 
-This project demonstrates Infrastructure as Code (IaC) using Terraform to automate the provisioning of AWS infrastructure and deploy an Nginx web server on an Amazon EC2 instance.
+## 📌 Project Overview
 
-Instead of manually creating AWS resources through the AWS Management Console, Terraform automates the infrastructure creation, configuration, and management process.
+This project demonstrates Infrastructure as Code (IaC) using Terraform to provision AWS infrastructure and automatically deploy an Nginx web server on an Amazon EC2 instance.
 
-The project provisions an EC2 instance, configures networking and security, creates an SSH key pair, and installs Nginx automatically using a Bash script.
+The infrastructure is created automatically using Terraform, and Nginx is installed using a Bash automation script.
 
-🏗️ Architecture
+## 🏗️ Architecture
 
-                 Developer
-                     |
-                     v
-              Terraform CLI
-                     |
-                     v
-              AWS Provider
-                     |
-        +------------+------------+
-        |                         |
-        v                         v
-   Default VPC              Security Group
-                                  |
-                         +--------+--------+
-                         |                 |
-                         v                 v
-                      SSH :22          HTTP :80
-                         |                 |
-                         +--------+--------+
-                                  |
-                                  v
-                             EC2 Instance
-                             Ubuntu Server
-                                  |
-                                  v
-                              Nginx
-                                  |
-                                  v
-                        Custom Web Page
-                    Welcome to Nginx on EC2
+```text
+Developer
+   |
+   v
+Terraform CLI
+   |
+   v
+AWS Provider
+   |
+   +----------------------+
+   |                      |
+   v                      v
+ Default VPC         Security Group
+                           |
+                    +------+------+
+                    |             |
+                    v             v
+                 SSH :22      HTTP :80
+                    |             |
+                    +------+------+
+                           |
+                           v
+                      EC2 Instance
+                      Ubuntu Server
+                           |
+                           v
+                         Nginx
+                           |
+                           v
+                     Custom Website
+```
 
-🛠️ Technologies Used
+## 🛠️ Technologies Used
 
-Terraform
+- Terraform
+- AWS EC2
+- AWS VPC
+- AWS Security Groups
+- Ubuntu Linux
+- Nginx
+- Bash Scripting
+- Git & GitHub
 
-Amazon Web Services (AWS)
+## ✨ Features
 
-Amazon EC2
+- Automated EC2 provisioning
+- Infrastructure as Code using Terraform
+- Security group configuration
+- SSH access to EC2
+- Automated Nginx installation
+- Custom HTML webpage deployment
+- Terraform variables and outputs
+- Infrastructure lifecycle management
 
-AWS Security Groups
+## 📁 Project Structure
 
-Ubuntu Linux
-
-Nginx
-
-Bash Scripting
-
-Git & GitHub
-
-✨ Features
-
-Automated EC2 instance provisioning using Terraform
-
-Infrastructure as Code implementation
-
-AWS security group configuration
-
-SSH access to EC2 instance
-
-Automated Nginx installation using Bash
-
-Custom HTML webpage deployment
-
-Configurable instance type, AMI, and storage size
-
-Terraform variables and outputs
-
-Infrastructure lifecycle management using Terraform
-
-📁 Project Structure
-
-TERRAFORM-FOR-DEVOPS-LIVE/
+```text
+Terraform-AWS-EC2/
 │
 ├── terraform.tf
 ├── providers.tf
@@ -91,127 +76,124 @@ TERRAFORM-FOR-DEVOPS-LIVE/
 ├── install_nginx.sh
 ├── .gitignore
 └── README.md
+```
 
-⚙️ Prerequisites
+## ⚙️ Prerequisites
 
-Before starting, ensure you have:
+- AWS Account
+- AWS CLI
+- Terraform
+- Git
+- SSH Client
 
-AWS Account
+Configure AWS CLI:
 
-AWS CLI installed and configured
-
-Terraform installed
-
-SSH client
-
-Git installed
-
-Configure AWS credentials:
-
+```bash
 aws configure
+```
 
-Verify AWS authentication:
+Verify AWS credentials:
 
+```bash
 aws sts get-caller-identity
+```
 
-🚀 Deployment Steps
+## 🚀 Deployment Steps
 
-1. Clone Repository
+### 1. Clone Repository
 
+```bash
 git clone https://github.com/varun0981/Terraform-AWS-EC2.git
 cd Terraform-AWS-EC2
+```
 
-2. Initialize Terraform
+### 2. Initialize Terraform
 
+```bash
 terraform init
+```
 
-3. Validate Configuration
+### 3. Validate Configuration
 
+```bash
 terraform validate
+```
 
-4. Review Infrastructure Plan
+### 4. Generate Infrastructure Plan
 
+```bash
 terraform plan
+```
 
-5. Deploy Infrastructure
+### 5. Deploy Infrastructure
 
+```bash
 terraform apply
+```
 
-Enter yes when prompted.
+Enter `yes` to confirm.
 
-Terraform will automatically create the required AWS resources.
+### 6. Connect to EC2
 
-6. Connect to EC2
-
+```bash
 ssh -i terra-key-ec2 ubuntu@<EC2-PUBLIC-IP>
+```
 
-7. Verify Nginx
+### 7. Verify Nginx
 
+```bash
 sudo systemctl status nginx
+```
 
-8. Access Website
+### 8. Access Website
 
 Open your browser:
 
+```text
 http://<EC2-PUBLIC-IP>
+```
 
 Expected output:
 
-Welcome to Nginx on EC2
+**Welcome to Nginx on EC2**
 
-🧹 Destroy Infrastructure
+## 🧹 Destroy Infrastructure
 
-To remove the AWS resources created by Terraform:
+To remove the AWS infrastructure:
 
+```bash
 terraform destroy
+```
 
-Enter yes when prompted.
+Enter `yes` to confirm.
 
-This helps prevent unnecessary AWS charges.
+## 🔐 Security Best Practices
 
-🔐 Security Best Practices
+- Never upload private SSH keys to GitHub.
+- Never commit AWS credentials.
+- Exclude Terraform state files using `.gitignore`.
+- Restrict SSH access to trusted IP addresses.
+- Follow IAM least-privilege principles.
+- Destroy unused AWS resources to avoid charges.
 
-Never upload private SSH keys to GitHub.
+## 📚 What I Learned
 
-Never commit AWS access keys or secrets.
+- Infrastructure as Code
+- Terraform configuration and resource management
+- AWS EC2 provisioning
+- Security group configuration
+- Linux server administration
+- Bash scripting and automation
+- Nginx installation and deployment
+- Terraform infrastructure lifecycle management
 
-Use .gitignore to exclude sensitive files.
+## 👨‍💻 Author
 
-Avoid allowing SSH access from 0.0.0.0/0 in production.
+**Varun K**
 
-Restrict HTTP access when required.
+GitHub: [@varun0981](https://github.com/varun0981)
 
-Use IAM roles and least-privilege permissions.
+## ⭐ Project Status
 
-Always destroy unused AWS resources.
-
-📚 What I Learned
-
-Infrastructure as Code using Terraform
-
-AWS EC2 provisioning
-
-Terraform providers, resources, and variables
-
-AWS networking and security groups
-
-SSH-based Linux server administration
-
-Bash scripting for automation
-
-Nginx installation and configuration
-
-Terraform lifecycle management
-
-Deploying a web server on AWS
-
-👨‍💻 Author
-
-Varun K
-
-GitHub: @varun0981
-
-⭐ Acknowledgment
-
-This project was developed as part of my hands-on learning journey in AWS, Terraform, Linux Administration, and DevOps.
+Completed - Successfully provisioned an AWS EC2 instance using Terraform and deployed an Nginx web server with automated configuration.
 
