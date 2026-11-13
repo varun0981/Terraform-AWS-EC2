@@ -1,0 +1,49 @@
+
+# Terraform working directories
+.terraform/
+**/.terraform/*
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Terraform plans
+*.tfplan
+*.plan
+
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform lock file backups
+*.lock.hcl.backup
+
+# AWS credentials
+.aws/
+credentials
+
+# SSH private keys
+terra-key-ec2
+terra-key-ec2.pem
+*.pem
+id_rsa
+id_ed25519
+
+# Secrets and environment variables
+.env
+.env.*
+*.secret
+secrets/
+
+# Mac OS
+.DS_Store
+
+# Logs
+*.log
