@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../remote-infra"
+		},
+		{
+			"path": "../../terraform-modules-app"
+		}
+	],
+	"settings": {}
+}

@@ -1,38 +1,28 @@
-
-# Terraform working directory
-.terraform/
-
-# Terraform state files
+# Terraform
+**/.terraform/
 *.tfstate
 *.tfstate.*
+*.tfstate.backup
 terraform.tfstate
 terraform.tfstate.backup
 recovered.tfstate
+*.tfplan
+crash.log
 
-# Terraform variable files
+# Terraform variables
 *.tfvars
 *.tfvars.json
 
-# SSH private keys
-terra-key-ec2
-terra-key-ec2.pem
+# SSH Private Keys
 *.pem
-*.key
+*.pub
+terra-key-ec2
 
-# AWS credentials
-.aws/
-credentials
+# Secrets
+.env
+*.secret
 
-# Terraform crash logs
-crash.log
-crash.*.log
-
-# Local override files
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
-
-# Mac OS
+# Mac
 .DS_Store
-
+terra-key-ec2
+*.pem

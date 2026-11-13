@@ -11,6 +11,8 @@ The project follows a modular approach to create, manage, and deploy AWS resourc
 
 This project follows a Git branching strategy to manage development, staging, and production environments.
 
+![Git Branching Strategy](./git-branching.png)
+
 ### Branches
 
 | Branch | Purpose |
