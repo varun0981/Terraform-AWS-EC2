@@ -14,3 +14,8 @@ variable "aws_am_id" {
   type    = string
 }
 
+variable "env" {
+  description = "Deployment environment name"
+  type        = string
+  default     = "dev"
+}
